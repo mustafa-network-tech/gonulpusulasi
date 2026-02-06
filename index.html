@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gönül Pusulası – Ana Sayfa</title>
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="has-site-header">
+
+<header class="site-header">
+  <a class="site-title" href="index.html">Gönül Pusulası</a>
+  <div class="heart-main-wrapper">
+    <div id="heartBtn" class="heart-btn" aria-label="Menüyü aç/kapat">❤</div>
+    <div id="heartPanel" class="heart-nav-panel">
+      <div class="m-links">
+        <a class="m-item" href="index.html">Ana Sayfa</a>
+        <a class="m-item" href="gonulmektubu/">Gönül Mektubu</a>
+        <a class="m-item" href="mektup.html">mektuplar</a>
+        <a class="m-item" href="/"> </a>
+        <a class="m-item" href="/"></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="gp-page">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Bir cümle, bir fotoğraf, bir his</h1>
+        <div class="hero-desc">Sevda; gösterişe değil niyete bakar. Burada söz aceleye gelmez, saygıya dayanır.</div>
+        <p style="margin-top: 25px; font-family: 'Crimson Pro',serif; font-size: 20px; font-style: italic; color: var(--accent);">"Bir cümle, bir fotoğraf, bir his…"</p>
+      </div>
+
+      <div class="hero-media">
+        <div class="photo-frame">
+          <img src="http://www.gonulpusulasi.com/wp-content/uploads/2026/01/sunset.webp" alt="Gönül Pusulası Günbatımı">
+        </div>
+        <div class="badge">Günün ilhamı: <b>"Kalp, doğruyu sessizce bilir."</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quotes -->
+  <section id="sozler" class="section">
+    <div class="section-wrap">
+      <div class="section-head">
+        <h2>Gönül Kelamı</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="gallery">
+        <div class="quote-card"><p class="quote">"Sen gelince, kalabalıkların sesi azalır… İçim, yerine oturur."</p></div>
+        <div class="quote-card"><p class="quote">"Sevda; yüksek ses değil, aynı yöne bakan iki suskunluktur."</p></div>
+        <div class="quote-card"><p class="quote">"Kırmadan sevmek; en zor, en asil yol."</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="galeri" class="section">
+    <div class="section-wrap">
+      <div class="section-head">
+        <h2>Gönül Arşivi</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="gallery">
+        <figure class="g-item" style="--i:1;">
+          <img src="http://www.gonulpusulasi.com/wp-content/uploads/2026/01/gonul.jpg" alt="">
+          <figcaption>"Gözün görmediğini kalp tamamlar."</figcaption>
+        </figure>
+
+        <figure class="g-item" style="--i:2;">
+          <img src="http://www.gonulpusulasi.com/wp-content/uploads/2026/01/asssk.webp" alt="">
+          <figcaption>"En çok, sakinliğinde sevdim seni."</figcaption>
+        </figure>
+
+        <figure class="g-item" style="--i:3;">
+          <img src="http://www.gonulpusulasi.com/wp-content/uploads/2026/01/each.webp" alt="">
+          <figcaption>"Niyet temizse, yol menzile varır."</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="margin-bottom: 10px;">© 2026 Gönül Pusulası</div>
+    <div style="opacity: .7; font-size: 16px;">"Sevda; vitrin değil, niyettir."</div>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    const btn = document.getElementById('heartBtn');
+    const panel = document.getElementById('heartPanel');
+    if(!btn || !panel) return;
+
+    btn.addEventListener('click', () => panel.classList.toggle('open'));
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      if(panel.classList.contains('open')){
+        const inside = panel.contains(e.target) || btn.contains(e.target);
+        if(!inside) panel.classList.remove('open');
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

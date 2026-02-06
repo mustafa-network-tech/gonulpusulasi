@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap');
+
+:root{
+  --accent:#b22222;
+  --bg0:#fff7f3; --bg1:#fffdfb;
+  --ink:#2b1710; --muted:rgba(43,23,16,.62);
+  --wine:#b22222; --gold:#d4af37; --line:rgba(178,34,34,.12);
+  --shadow1:0 14px 34px rgba(38,10,22,.10);
+  --shadow3:0 30px 80px rgba(38,10,22,.18);
+  --r-lg:28px; --r-md:20px;
+  --ease:cubic-bezier(.23,1,.32,1);
+}
+
+/* Elementor/tema çakışmasını azaltmak için wrapper */
+.gp-page{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
+  background:linear-gradient(160deg,var(--bg0),var(--bg1));
+  min-height:100vh;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+@keyframes heartbeat{
+  0%{transform:scale(1)}
+  20%{transform:scale(1.03)}
+  35%{transform:scale(1)}
+  55%{transform:scale(1.06)}
+  70%{transform:scale(1)}
+  100%{transform:scale(1)}
+}
+
+/* HEART MENU (sağ üstte sabit) */
+.heart-main-wrapper{
+  position:fixed;
+  top:10px;
+  right:18px;
+  z-index:99999;
+  text-align:right;
+}
+.heart-btn{
+  font-size:40px;
+  color:var(--accent);
+  cursor:pointer;
+  animation: heartbeat 2.6s infinite;
+  user-select:none;
+  line-height:1;
+}
+
+.heart-nav-panel{
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  background: rgba(255,255,255,0.98);
+  margin-top:10px;
+  border-radius:22px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.10);
+  transition: all .45s cubic-bezier(.4,0,.2,1);
+  padding:0 20px;
+  border:1px solid rgba(178,34,34,0.12);
+  width:220px;
+}
+.heart-nav-panel.open{
+  max-height:600px;
+  opacity:1;
+  padding:16px 20px;
+}
+
+.m-links{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin:0;
+}
+.m-item{
+  text-decoration:none;
+  color:#333;
+  font-weight:800;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  transition:.25s;
+}
+.m-item:hover{color:var(--accent);}
+
+
+
+/* İçerik */
+.wrap{width:min(1200px,92%); margin:0 auto; padding:0 20px;}
+.hero{padding-top:100px; padding-bottom:30px;}
+.hero-grid{display:grid; grid-template-columns:1fr 1.2fr .8fr; gap:20px; align-items:start;}
+@media(max-width:980px){ .hero-grid{grid-template-columns:1fr;} }
+
+.hero-left{
+  padding:25px;
+  border-radius:var(--r-lg);
+  background:rgba(255,255,255,.70);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow1);
+}
+
+/* Mektup */
+.letter-box{
+  text-align:center;
+  background:#fff;
+  border-radius:var(--r-lg);
+  padding:30px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow3);
+}
+@keyframes sway{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+.envelope{
+  font-size:80px;
+  cursor:pointer;
+  display:inline-block;
+  animation:sway 3s infinite ease-in-out;
+  transform-origin:center bottom;
+  transition:.2s var(--ease);
+  user-select:none;
+}
+.envelope:active{transform:scale(.92);}
+.letter-display{
+  margin-top:20px;
+  font-family:'Crimson Pro',serif;
+  font-size:20px;
+  font-style:italic;
+  min-height:90px;
+  transition:.35s var(--ease);
+  padding-top:15px;
+  border-top:1px double var(--gold);
+}
+
+/* Görsel */
+.visual-box{
+  width:100%;
+  border-radius:20px;
+  overflow:hidden;
+  cursor:pointer;
+  position:relative;
+  margin-top:20px;
+  box-shadow:var(--shadow3);
+}
+.visual-img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  display:block;
+  transition:.8s var(--ease);
+}
+.visual-content{
+  position:absolute; bottom:0; left:0; right:0;
+  padding:28px 30px;
+  background:linear-gradient(transparent, rgba(43,23,16,.92));
+  color:#fff;
+}
+
+.footer{
+  padding:40px 0;
+  text-align:center;
+  border-top:1px solid var(--line);
+  margin-top:40px;
+}
+.footer-note{
+  font-family:'Crimson Pro',serif;
+  font-style:italic;
+  color:var(--muted);
+}

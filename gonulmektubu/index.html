@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gönül Pusulası – Gönül Mektubu</title>
+  <link rel="stylesheet" href="../assets/css/header.css">
+  <link rel="stylesheet" href="../assets/css/gonulmektubu.css">
+</head>
+<body class="has-site-header">
+
+<header class="site-header">
+  <a class="site-title" href="../index.html">Gönül Pusulası</a>
+  <div class="heart-main-wrapper">
+    <div id="heartBtn" class="heart-btn" aria-label="Menüyü aç/kapat">❤</div>
+    <div id="heartPanel" class="heart-nav-panel">
+      <div class="m-links">
+        <a class="m-item" href="../index.html">Ana Sayfa</a>
+        <a class="m-item" href="index.html">Gönül Mektubu</a>
+        <a class="m-item" href="../mektup.html">mektuplar</a>
+        <a class="m-item" href="/"> </a>
+        <a class="m-item" href="/"></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="gp-page">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <h1 style="font-family:'Playfair Display',serif; font-size:32px; margin-bottom:10px;">Gönül Arşivi</h1>
+          <p style="font-family:'Crimson Pro',serif; font-style:italic; color:var(--muted);">
+            Bazı hisler sadece yazıldığında hafifler. Burada her mektup isimsiz, her sessizlik derindir.
+          </p>
+        </div>
+
+        <div class="letter-box">
+          <div class="envelope" id="openEnvelope" role="button" tabindex="0" aria-label="Mektubu aç">✉️</div>
+          <h2 style="font-family:'Playfair Display',serif; margin-top:15px;">Gönül Mektubu</h2>
+          <div id="letterText" class="letter-display">Zarfa dokun, bugün senin nasibine düşeni gör...</div>
+        </div>
+
+        <div class="hero-left" style="background:var(--ink); color:#fff;">
+          <h3 style="color:var(--gold); font-family:'Playfair Display',serif;">Kuyu Notu</h3>
+          <p style="font-family:'Crimson Pro',serif; font-style:italic; opacity:.85; margin-top:10px;">
+            "İçine attıkların, gün gelir seni taşır."
+          </p>
+        </div>
+      </div>
+
+      <div class="visual-box" id="visualBox" aria-label="Görseli değiştir">
+        <img id="vImg" class="visual-img" src="http://www.gonulpusulasi.com/wp-content/uploads/2026/01/sunset.webp" alt="">
+        <div class="visual-content">
+          <h4 id="vTitle" style="font-family:'Playfair Display',serif; font-size:24px;">Sessiz Liman</h4>
+          <p id="vText" style="font-family:'Crimson Pro',serif; font-style:italic;">
+            "Huzur, gürültünün bittiği yerde değil, kalbin sustuğu yerde başlar."
+          </p>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-note">"Sevda; vitrin değil, niyettir."</div>
+        <div style="margin-top:10px; font-size:13px; opacity:.6;">© <span id="yil"></span> Gönül Pusulası</div>
+      </footer>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  // Yıl
+  var yil = document.getElementById('yil');
+  if (yil) yil.textContent = new Date().getFullYear();
+
+  // Görseller
+  var visuals = [
+    { img:"http://www.gonulpusulasi.com/wp-content/uploads/2026/01/sunset.webp", title:"Sessiz Liman", text:"\"Huzur, gürültünün bittiği yerde değil, kalbin sustuğu yerde başlar.\"" },
+    { img:"http://www.gonulpusulasi.com/wp-content/uploads/2026/01/sevgii.jpg", title:"Mavi Derinlik", text:"\"Deniz gibi olmalı insan; yüzeyi durgun, derinlikleri fırtınalı.\"" },
+    { img:"http://www.gonulpusulasi.com/wp-content/uploads/2026/01/sevda1.webp", title:"Eski Patika", text:"\"Bazı yollar sadece yürümek içindir, varmak için değil.\"" }
+  ];
+  var vIndex = 0;
+
+  function changeVisual(){
+    vIndex = (vIndex + 1) % visuals.length;
+    var imgEl = document.getElementById('vImg');
+    var titleEl = document.getElementById('vTitle');
+    var textEl = document.getElementById('vText');
+    if(!imgEl || !titleEl || !textEl) return;
+
+    imgEl.style.opacity = '0.25';
+    setTimeout(function(){
+      imgEl.src = visuals[vIndex].img;
+      titleEl.textContent = visuals[vIndex].title;
+      textEl.textContent = visuals[vIndex].text;
+      imgEl.style.opacity = '1';
+    }, 350);
+  }
+
+  var vb = document.getElementById('visualBox');
+  if (vb) vb.addEventListener('click', changeVisual);
+
+  // Mektuplar (günde 3)
+  var messages = [
+    "\"Kalp, doğruyu sessizce bilir. Sadece dinle.\"",
+    "\"İyi ki var CANIM KENDİM.\"",
+    "\"Sevmek; birinin uykusunu bölmemek için nefesini tutmaktır.\"",
+    "\"İnsan en çok, yanında sustuğu kişiyi sever.\"",
+    "\"Yarım kalan her şey, başka bir hikâyenin başlangıcıdır.\"",
+    "\"Bazı gidişler, kalışlardan daha onurludur.\"",
+    "\"Dertler misafirdir; gelir, ağırlanır ve vakti gelince gider.\"",
+    "\"Niyetin safsa, yolun her zaman aydınlık olur.\"",
+    "\"Bugün sadece dur ve nefes al; varlığın bir mucize yoldaş.\""
+  ];
+
+  function openLetter(){
+    var el = document.getElementById('letterText');
+    if(!el) return;
+
+    var today = new Date().toLocaleDateString('tr-TR');
+    var letterData = null;
+
+    try { letterData = JSON.parse(localStorage.getItem('gp_letter_limit') || "null"); }
+    catch(e){ letterData = null; }
+
+    if(!letterData || letterData.date !== today){
+      letterData = { date: today, count: 0 };
+    }
+
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(10px)';
+
+    setTimeout(function(){
+      if(letterData.count >= 3){
+        el.innerHTML =
+          "<span style='color:#b22222;font-weight:600;'>" +
+          "\"Bugünlük bu kadar kelam kâfi yoldaş.<br><br>" +
+          "Heybendekileri sindir, yarın güneş doğduğunda yine gel...\"</span>";
+      } else {
+        var randomMsg = messages[Math.floor(Math.random() * messages.length)];
+        el.textContent = randomMsg;
+        letterData.count++;
+        localStorage.setItem('gp_letter_limit', JSON.stringify(letterData));
+      }
+
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 280);
+  }
+
+  var openBtn = document.getElementById('openEnvelope');
+  if(openBtn){
+    openBtn.addEventListener('click', openLetter);
+    openBtn.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' ') openLetter();
+    });
+  }
+})();
+
+(function(){
+  const btn = document.getElementById('heartBtn');
+  const panel = document.getElementById('heartPanel');
+  if(!btn || !panel) return;
+
+  btn.addEventListener('click', () => panel.classList.toggle('open'));
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
+    if(panel.classList.contains('open')){
+      const inside = panel.contains(e.target) || btn.contains(e.target);
+      if(!inside) panel.classList.remove('open');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

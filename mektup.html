@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gönül Pusulası – Mektup</title>
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/letter.css">
+</head>
+<body class="has-site-header">
+
+<header class="site-header">
+  <a class="site-title" href="index.html">Gönül Pusulası</a>
+  <div class="heart-main-wrapper">
+    <div id="heartBtn" class="heart-btn" aria-label="Menüyü aç/kapat">❤</div>
+    <div id="heartPanel" class="heart-nav-panel">
+      <div class="m-links">
+        <a class="m-item" href="index.html">Ana Sayfa</a>
+        <a class="m-item" href="gonulmektubu/">Gönül Mektubu</a>
+        <a class="m-item" href="mektup.html">mektuplar</a>
+        <a class="m-item" href="/"> </a>
+        <a class="m-item" href="/"></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="gp-page">
+
+  <div class="gp-letter-page" id="gpLetterPage">
+
+    <div class="gp-envelope-container" id="gpEnvelope" role="button" tabindex="0" aria-label="Zarfı aç">
+      <div class="gp-envelope"><div class="gp-seal"></div></div>
+      <div class="gp-sender">Gönderen: Gönül Pusulası</div>
+    </div>
+
+    <div class="gp-letter-wrapper" id="gpWrapper">
+      <div class="gp-letter-container">
+        <div class="gp-burn-edge"></div>
+        <div class="gp-text-content">
+          <span id="gpTitle" class="gp-header"></span>
+          <div id="gpMessage"></div>
+          <div id="gpSignature" class="gp-signature">Gönül Pusulası'ndan sevgilerle…</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gp-bottom-panel">
+      <button class="gp-back-button" id="gpBackBtn" type="button">Gönle Dön</button>
+      <div class="gp-copyright">© 2026 Gönül Pusulası | "Sevda; vitrin değil, niyettir."</div>
+    </div>
+
+    <audio id="gpOpenSound" src="https://www.soundjay.com/misc/paper-rip-1.mp3" preload="auto"></audio>
+
+  </div>
+
+</div>
+
+<script>
+  (function(){
+    const btn = document.getElementById('heartBtn');
+    const panel = document.getElementById('heartPanel');
+    if(!btn || !panel) return;
+
+    btn.addEventListener('click', () => panel.classList.toggle('open'));
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      if(panel.classList.contains('open')){
+        const inside = panel.contains(e.target) || btn.contains(e.target);
+        if(!inside) panel.classList.remove('open');
+      }
+    });
+  })();
+  (function(){
+    const config = {
+      baslik: "Yolda Kalmanın Hikmeti",
+      paragraflar: [
+        "Zihnin fırtınaları arasında durulacak bir liman ararken, en kıymetli hazinenin aslında o fırtınanın ta kendisi olduğunu fark etmezsin. Kağıda düşen her kelime, ruhunun derinliklerinden süzülüp gelen birer itiraftır. Bugün, sadece dur ve nefesinin göğüs kafesinde yarattığı o muazzam ritmi dinle.",
+        "Zamanın hırçın dişlileri arasında ezilmek yerine, akışın kendisine bırak kendini. Unutma ki; en güzel çiçekler sarp kayalıklarda, en berrak sular ise derin sessizliklerde gizlidir. Senin yolun, başkalarının adımlarıyla değil, kendi kalbinin pusulasıyla çizilecek kadar özeldir.",
+        "Şimdi gözlerini kapat ve bu satırların ruhuna dokunmasına izin ver. Başarı, varılacak bir menzil değil, yolda olma halidir. Heybendeki tüm ağırlıkları bu kağıdın kenarındaki yanık izlerine bırak. Sen, her haliyle tam ve biriciksin. Işığın daim, yolun açık olsun."
+      ],
+      hiz: 50
+    };
+
+    const env = document.getElementById('gpEnvelope');
+    const wrapper = document.getElementById('gpWrapper');
+    const backBtn = document.getElementById('gpBackBtn');
+    const titleEl = document.getElementById('gpTitle');
+    const messageEl = document.getElementById('gpMessage');
+    const sigEl = document.getElementById('gpSignature');
+    const sound = document.getElementById('gpOpenSound');
+
+    let userScrolling = false;
+    let isWriting = false;
+    let pIndex = 0;
+    let cIndex = 0;
+
+    function safePlay(){
+      try { sound && sound.play && sound.play(); } catch(e){}
+    }
+
+    window.addEventListener('wheel', () => { if(isWriting) userScrolling = true; }, {passive:true});
+    window.addEventListener('touchstart', () => { if(isWriting) userScrolling = true; }, {passive:true});
+
+    function autoScroll(){
+      if(!userScrolling){
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      }
+    }
+
+    function revealLetter(){
+      safePlay();
+      env.style.transform = 'translate(-50%, -150vh)';
+      env.style.opacity = '0';
+
+      setTimeout(() => {
+        env.style.display = 'none';
+        backBtn.style.display = 'block';
+
+        wrapper.style.display = 'block';
+        window.scrollTo(0,0);
+
+        setTimeout(() => {
+          wrapper.style.opacity = '1';
+          startWriting();
+        }, 100);
+      }, 900);
+    }
+
+    function resetToEnvelope(){
+      wrapper.style.opacity = '0';
+      backBtn.style.display = 'none';
+
+      setTimeout(() => {
+        wrapper.style.display = 'none';
+        titleEl.textContent = "";
+        messageEl.innerHTML = "";
+        sigEl.style.opacity = "0";
+
+        env.style.display = 'block';
+        setTimeout(() => {
+          env.style.transform = 'translate(-50%, -50%)';
+          env.style.opacity = '1';
+        }, 50);
+      }, 650);
+    }
+
+    function startWriting(){
+      isWriting = true;
+      userScrolling = false;
+      pIndex = 0;
+      cIndex = 0;
+
+      function writeTitle(){
+        if(cIndex < config.baslik.length){
+          titleEl.textContent += config.baslik.charAt(cIndex);
+          cIndex++;
+          setTimeout(writeTitle, config.hiz);
+        } else {
+          cIndex = 0;
+          setTimeout(writeParagraph, 700);
+        }
+      }
+
+      function writeParagraph(){
+        if(pIndex < config.paragraflar.length){
+          if(cIndex === 0){
+            const p = document.createElement('p');
+            p.id = 'gp-p-' + pIndex;
+            p.style.marginBottom = '30px';
+            messageEl.appendChild(p);
+          }
+
+          const currentP = document.getElementById('gp-p-' + pIndex);
+          if(cIndex < config.paragraflar[pIndex].length){
+            currentP.textContent += config.paragraflar[pIndex].charAt(cIndex);
+            cIndex++;
+            autoScroll();
+            setTimeout(writeParagraph, config.hiz);
+          } else {
+            pIndex++;
+            cIndex = 0;
+            setTimeout(writeParagraph, 1000);
+          }
+        } else {
+          isWriting = false;
+          sigEl.style.opacity = '1';
+          setTimeout(autoScroll, 400);
+        }
+      }
+
+      writeTitle();
+    }
+
+    env.addEventListener('click', revealLetter);
+    env.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') revealLetter();
+    });
+    backBtn.addEventListener('click', resetToEnvelope);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+/* Ortak site header – tüm sayfalarda kullanılır */
+:root { --header-accent: #b22222; }
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: rgba(255, 253, 251, 0.98);
+  border-bottom: 1px solid rgba(178, 34, 34, 0.12);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  z-index: 99998;
+}
+
+.site-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent, var(--header-accent));
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: opacity 0.25s;
+}
+
+.site-title:hover {
+  opacity: 0.85;
+}
+
+/* Header içindeki kalp menü konumu */
+.site-header .heart-main-wrapper {
+  position: static;
+  margin-top: 0;
+}
+
+body.has-site-header {
+  padding-top: 56px;
+}
