@@ -77,9 +77,9 @@
 
   // Görseller
   var visuals = [
-    { img:"assets/images/ask2.jpg", title:"Sessiz Liman", text:"\"Huzur, gürültünün bittiği yerde değil, kalbin sustuğu yerde başlar.\"" },
-    { img:"assets/images/ask1.jpg", title:"Mavi Derinlik", text:"\"Deniz gibi olmalı insan; yüzeyi durgun, derinlikleri fırtınalı.\"" },
-    { img:"assets/images/ask7.jpg", title:"Eski Patika", text:"\"Bazı yollar sadece yürümek içindir, varmak için değil.\"" }
+    { img:"/images/ask2.jpg", title:"Sessiz Liman", text:"\"Huzur, gürültünün bittiği yerde değil, kalbin sustuğu yerde başlar.\"" },
+    { img:"/images/ask1.jpg", title:"Mavi Derinlik", text:"\"Deniz gibi olmalı insan; yüzeyi durgun, derinlikleri fırtınalı.\"" },
+    { img:"/images/ask7.jpg", title:"Eski Patika", text:"\"Bazı yollar sadece yürümek içindir, varmak için değil.\"" }
   ];
   var vIndex = 0;
 
@@ -94,7 +94,7 @@
     setTimeout(function(){
       imgEl.src = visuals[vIndex].img;
       titleEl.textContent = visuals[vIndex].title;
-      textEl.textContent = visuals[vIndex].text;
+       textEl.textContent = visuals[vIndex].text;
       imgEl.style.opacity = '1';
     }, 350);
   }
