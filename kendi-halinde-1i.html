@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌿 kendi hâlinde 1i 🕊️</title>
+  <link rel="stylesheet" href="assets/css/kendi-halinde.css">
+</head>
+<body>
+  <main class="kh-page">
+    <section class="kh-list-view" id="listView" aria-labelledby="mainTitle">
+      <h1 class="kh-main-title" id="mainTitle">🌿 kendi hâlinde 1i 🕊️</h1>
+      <ol class="kh-writing-list" id="writingList"></ol>
+    </section>
+
+    <section class="kh-reader-view" id="readerView" aria-live="polite">
+      <article class="kh-paper" id="paper">
+        <div class="kh-copy" id="copy">
+          <h2 class="kh-title" id="writingTitle"></h2>
+          <div class="kh-message" id="writingText"></div>
+        </div>
+        <img class="kh-logo" id="paperLogo" alt="" aria-hidden="true">
+        <div class="kh-final-signature" id="finalSignature">🌿 kendi hâlinde 1i 🕊️</div>
+      </article>
+    </section>
+
+    <nav class="kh-controls" id="controls" aria-label="Yazı kontrolleri">
+      <button class="kh-control" id="backButton" type="button">← Yazılara Dön</button>
+      <button class="kh-control" id="replayButton" type="button">Yeniden Oku</button>
+    </nav>
+  </main>
+
+  <script>
+    const LOGO_URL = "https://mustafa-network-tech.github.io/photo-url/images/doga/logo-transparent-v2.png";
+    const writings = [
+      {
+        title: "Kendi Yolunda Kal",
+        text: [
+          "Herkesin yürüdüğü yol sana doğru gelmek zorunda değil.",
+          "Bazen kalabalığın tersine yürümek, yanlış yerde olduğun anlamına gelmez. Belki de ilk kez kendi yönünü buluyorsundur.",
+          "İnsan zamanla şunu öğreniyor; başkalarının ne kadar ilerlediğine bakarak kendi yolunun değerini ölçemezsin. Herkesin yükü başka, zamanı başka, varacağı yer başka.",
+          "Yorulduğunda dinlen. Gerekirse biraz yavaşla. Ama sırf başkaları başka tarafa gidiyor diye kendi pusulandan vazgeçme.",
+          "Çünkü bazı yollar kalabalık olduğu için değil, sana ait olduğu için güzeldir."
+        ],
+        backgroundUrl: "https://mustafa-network-tech.github.io/photo-url/images/doga/IMG_3825.JPG"
+      },
+      {
+        title: "Sessizliğin de Bir Dili Var",
+        text: [
+          "İnsan her şeyi anlatmak zorunda değil.",
+          "Bazı kırgınlıkların cümlesi olmaz. Bazı vedaların açıklaması, bazı hayal kırıklıklarının hesabı kalmaz.",
+          "Bir zaman sonra insan kendini herkese anlatmaya çalışmaktan yoruluyor. Kimin ne anladığını değil, kendi içinde neyin doğru olduğunu önemsemeye başlıyor.",
+          "İşte o zaman sessizlik değişiyor.",
+          "Küslük olmaktan çıkıp huzura, kaçmak olmaktan çıkıp kendini korumaya dönüşüyor.",
+          "Bazen söylenmeyen şeyler eksik değildir.",
+          "Sadece anlayacak olana bırakılmıştır."
+        ],
+        backgroundUrl: "https://mustafa-network-tech.github.io/photo-url/images/doga/IMG_5392.JPG"
+      },
+      {
+        title: "Geç Kalmış Değilsin",
+        text: [
+          "Bazen hayatına bakıp “Keşke daha önce başlasaydım” dersin.",
+          "Keşke daha önce cesaret etseydim, daha önce vazgeçseydim, daha önce kendimi seçseydim…",
+          "Ama insan bazı şeyleri ancak yaşayarak anlayabiliyor.",
+          "Bugünkü aklını dün taşısaydın belki başka kararlar verirdin. Fakat o aklı sana kazandıran da zaten geçtiğin yollar oldu.",
+          "Bu yüzden geçmişe kızmak yerine ondan aldıklarını yanına koy.",
+          "Önünde hâlâ yol varsa, hâlâ bir şeyleri değiştirebiliyorsan geç kalmış değilsin.",
+          "Belki de tam zamanındasın."
+        ],
+        backgroundUrl: "https://mustafa-network-tech.github.io/photo-url/images/doga/IMG_5666.JPG"
+      },
+      {
+        title: "Biraz Kendine Dön",
+        text: [
+          "Herkes için yetişmeye çalışırken insan bazen kendisine geç kalıyor.",
+          "Kim üzülür, kim ne düşünür, kim yanlış anlar derken kendi içindeki sesi en sona bırakıyor.",
+          "Oysa senin de yorulduğun yerler var. Senin de anlatmadan taşıdığın şeyler, kimse bilmeden verdiğin mücadeleler var.",
+          "Biraz dur.",
+          "Her şeyi çözmek zorunda değilsin. Herkesi memnun etmek de senin görevin değil.",
+          "Arada bir dünyaya sırtını dönüp kendine bak.",
+          "Çünkü insanın en uzun yolculuğu bazen uzaklara değil, yeniden kendine doğru oluyor."
+        ],
+        backgroundUrl: "https://mustafa-network-tech.github.io/photo-url/images/doga/mart%C4%B1_g%C3%BCnbat%C4%B1m%C4%B1deniz.JPG"
+      },
+      {
+        title: "Bazı İnsanlar Uzakta Kalmalı",
+        text: [
+          "Her kaybettiğin insanı geri kazanmak zorunda değilsin.",
+          "Bazı insanlar hayatından çıktığında geriye boşluk değil, huzur kalır. Bunu anlamak bazen uzun zaman alır.",
+          "Sürekli açıklama yapmak zorunda kaldığın, yanında kendin gibi olamadığın, değerini ancak seni kaybettiğinde hatırlayan insanların ardından koşma.",
+          "Affetmek başka şeydir, aynı kapıyı yeniden açmak başka.",
+          "Kimseye öfke taşımadan da mesafe koyabilirsin.",
+          "Çünkü büyümek bazen insanları hayatına almak değil; kimlerin dışında kalması gerektiğini öğrenmektir."
+        ],
+        backgroundUrl: "https://mustafa-network-tech.github.io/photo-url/images/gonul-pusulasi/IMG_6411.JPG"
+      }
+    ];
+
+    const listView = document.getElementById('listView');
+    const writingList = document.getElementById('writingList');
+    const readerView = document.getElementById('readerView');
+    const paper = document.getElementById('paper');
+    const copy = document.getElementById('copy');
+    const titleElement = document.getElementById('writingTitle');
+    const textElement = document.getElementById('writingText');
+    const logoElement = document.getElementById('paperLogo');
+    const finalSignature = document.getElementById('finalSignature');
+    const controls = document.getElementById('controls');
+    const backButton = document.getElementById('backButton');
+    const replayButton = document.getElementById('replayButton');
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let activeIndex = -1;
+    let runId = 0;
+
+    writings.forEach((writing, index) => {
+      const item = document.createElement('li');
+      const button = document.createElement('button');
+      button.className = 'kh-writing-button';
+      button.type = 'button';
+      button.textContent = writing.title;
+      button.addEventListener('click', () => openWriting(index));
+      item.appendChild(button);
+      writingList.appendChild(item);
+    });
+
+    function validUrl(value){ return /^https?:\/\//i.test(value); }
+    function wait(milliseconds){ return new Promise(resolve => setTimeout(resolve, milliseconds)); }
+    function scrollWriting(){
+      const lineHeight = parseFloat(getComputedStyle(copy).lineHeight) || 38;
+      copy.scrollTop = Math.max(0, copy.scrollHeight - copy.clientHeight + lineHeight * 2);
+    }
+
+    async function typeText(element, value, speed, currentRun){
+      if(reducedMotion){ element.textContent = value; scrollWriting(); return; }
+      for(const character of value){
+        if(currentRun !== runId) return;
+        element.textContent += character;
+        scrollWriting();
+        await wait(speed);
+      }
+    }
+
+    async function playWriting(){
+      const writing = writings[activeIndex];
+      const currentRun = ++runId;
+      copy.classList.remove('is-fading');
+      finalSignature.classList.remove('is-visible');
+      titleElement.textContent = writing.title;
+      textElement.innerHTML = '';
+      copy.scrollTop = 0;
+
+      await wait(reducedMotion ? 0 : 650);
+      for(const paragraphText of writing.text){
+        if(currentRun !== runId) return;
+        const paragraph = document.createElement('p');
+        textElement.appendChild(paragraph);
+        await typeText(paragraph, paragraphText, 38, currentRun);
+        await wait(reducedMotion ? 0 : 520);
+      }
+      if(currentRun !== runId) return;
+      await wait(reducedMotion ? 0 : 4000);
+      if(currentRun !== runId) return;
+      copy.classList.add('is-fading');
+      await wait(reducedMotion ? 0 : 1850);
+      if(currentRun === runId) finalSignature.classList.add('is-visible');
+    }
+
+    function openWriting(index){
+      activeIndex = index;
+      const writing = writings[index];
+      listView.hidden = true;
+      readerView.classList.add('is-open');
+      controls.classList.add('is-open');
+      paper.style.backgroundImage = validUrl(writing.backgroundUrl) ? `url("${writing.backgroundUrl}")` : 'none';
+      if(validUrl(LOGO_URL)) logoElement.src = LOGO_URL;
+      else logoElement.removeAttribute('src');
+      playWriting();
+    }
+
+    function returnToList(){
+      runId++;
+      activeIndex = -1;
+      readerView.classList.remove('is-open');
+      controls.classList.remove('is-open');
+      listView.hidden = false;
+      copy.classList.remove('is-fading');
+      finalSignature.classList.remove('is-visible');
+      titleElement.textContent = '';
+      textElement.innerHTML = '';
+    }
+
+    backButton.addEventListener('click', returnToList);
+    replayButton.addEventListener('click', playWriting);
+  </script>
+</body>
+</html>

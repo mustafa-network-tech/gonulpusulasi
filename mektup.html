@@ -18,6 +18,7 @@
         <a class="m-item" href="index.html">Ana Sayfa</a>
         <a class="m-item" href="gonulmektubu/">Gönül Mektubu</a>
         <a class="m-item" href="mektup.html">mektuplar</a>
+        <a class="m-item" href="kendi-halinde-1i.html">kendi hâlinde 1i</a>
         <a class="m-item" href="/"> </a>
         <a class="m-item" href="/"></a>
       </div>
@@ -89,9 +90,9 @@
     const titleEl = document.getElementById('gpTitle');
     const messageEl = document.getElementById('gpMessage');
     const sigEl = document.getElementById('gpSignature');
+    const textContent = wrapper.querySelector('.gp-text-content');
     const sound = document.getElementById('gpOpenSound');
 
-    let userScrolling = false;
     let isWriting = false;
     let pIndex = 0;
     let cIndex = 0;
@@ -100,13 +101,13 @@
       try { sound && sound.play && sound.play(); } catch(e){}
     }
 
-    window.addEventListener('wheel', () => { if(isWriting) userScrolling = true; }, {passive:true});
-    window.addEventListener('touchstart', () => { if(isWriting) userScrolling = true; }, {passive:true});
-
     function autoScroll(){
-      if(!userScrolling){
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-      }
+      const lineHeight = parseFloat(getComputedStyle(textContent).lineHeight) || 42;
+      const twoLineBuffer = lineHeight * 2;
+      const nextScrollTop = textContent.scrollHeight - textContent.clientHeight + twoLineBuffer;
+
+      // Kâğıt yerinde kalır; yazı yalnızca alt iki satırlık alana geldiğinde yükselir.
+      textContent.scrollTop = Math.max(0, nextScrollTop);
     }
 
     function revealLetter(){
@@ -119,7 +120,7 @@
         backBtn.style.display = 'block';
 
         wrapper.style.display = 'block';
-        window.scrollTo(0,0);
+        textContent.scrollTop = 0;
 
         setTimeout(() => {
           wrapper.style.opacity = '1';
@@ -137,6 +138,7 @@
         titleEl.textContent = "";
         messageEl.innerHTML = "";
         sigEl.style.opacity = "0";
+        textContent.scrollTop = 0;
 
         env.style.display = 'block';
         setTimeout(() => {
@@ -148,7 +150,6 @@
 
     function startWriting(){
       isWriting = true;
-      userScrolling = false;
       pIndex = 0;
       cIndex = 0;
 
