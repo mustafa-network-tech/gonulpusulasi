@@ -94,6 +94,60 @@
           "Çünkü büyümek bazen insanları hayatına almak değil; kimlerin dışında kalması gerektiğini öğrenmektir."
         ],
         backgroundUrl: "https://mustafa-network-tech.github.io/photo-url/images/gonul-pusulasi/IMG_6411.JPG"
+      },
+      {
+        title: "Bazı İnsanlar Geç Kalır",
+        text: [
+          "Bazen bir insan tam kalbine göre gelir, ama hayatına yanlış zamanda dokunur.",
+          "Ne sevgide eksiklik vardır ne de hislerde. Sadece şartlar, yollar ve zaman aynı yerde buluşmaz.",
+          "Sonra hayat devam eder… Ama insan bazen kaybettiği kişiyi değil, onunla yaşayamadığı ihtimalleri özler."
+        ],
+        backgroundUrl: "assets/images/ask1.jpg"
+      },
+      {
+        title: "Sessizliğin de Bir Cevabı Var",
+        text: [
+          "İnsan her şeyi anlatmak zorunda değil. Bazen ne kadar konuşsan da seni anlamak istemeyene tek bir cümle bile yetmez.",
+          "Bir süre sonra kendini açıklamaktan, kırıldığın yerleri göstermekten yorulursun.",
+          "İşte o zaman susarsın. Çünkü bazı sessizlikler vazgeçmek değil, kendine verdiğin değerin başladığı yerdir."
+        ],
+        backgroundUrl: "assets/images/ask2.jpg"
+      },
+      {
+        title: "Kalmak da Sevmektir",
+        text: [
+          "Güzel günlerde yanında olmak kolaydır. İnsanların gerçek yeri, hayat biraz zorlaştığında belli olur.",
+          "Çünkü sevgi yalnızca güzel sözlerden, özlemekten ya da “yanındayım” demekten ibaret değildir.",
+          "Bazen hiçbir şey söylemeden kalmak ve herkes giderken bir insanın elini bırakmamak, söylenebilecek en güzel “seni seviyorum”dur."
+        ],
+        backgroundUrl: "assets/images/ask3.jpg"
+      },
+      {
+        title: "Herkes İz Bırakmaz",
+        text: [
+          "Hayatından birçok insan geçer. Bazıları bir süre yanında yürür, sonra sessizce kendi yoluna gider.",
+          "Zaman geçtikçe isimler unutulur, sesler silikleşir, hatıralar bile eski rengini kaybeder.",
+          "Ama bazı insanlar vardır; yıllar geçse de küçücük bir anıyla yeniden içine dokunur. Çünkü gönül herkesi değil, kendine dokunanı hatırlar."
+        ],
+        backgroundUrl: "assets/images/ask4.jpg"
+      },
+      {
+        title: "Bir Gün Anlarsın",
+        text: [
+          "Bugün kayıp sandığın bazı şeylerin neden hayatından çıktığını belki henüz anlayamıyorsun.",
+          "İnsan bazen biten bir hikâyenin ardından uzun süre aynı yerde bekliyor. Oysa hayat çoktan başka bir kapıyı aralamış oluyor.",
+          "Bir gün geriye baktığında anlayacaksın: Bazı vedalar seni eksiltmek için değil, yeniden kendine götürmek için yaşandı."
+        ],
+        backgroundUrl: "assets/images/ask5.jpg"
+      },
+      {
+        title: "Gönül Unutmuyor",
+        text: [
+          "Zaman geçiyor. İnsanlar değişiyor, yollar ayrılıyor ve bir zamanlar vazgeçilmez sandığımız şeyler yavaşça uzaklaşıyor.",
+          "Ama bazı anılar var ki üzerinden ne kadar zaman geçerse geçsin, küçücük bir şey onları yeniden hatırlatıyor.",
+          "Çünkü akıl unutmayı öğreniyor belki… Ama gönül, gerçekten kendisine dokunanı kolay kolay unutmuyor."
+        ],
+        backgroundUrl: "assets/images/ask6.jpg"
       }
     ];
 
@@ -125,6 +179,9 @@
     });
 
     function validUrl(value){ return /^https?:\/\//i.test(value); }
+    function validBackground(value){
+      return validUrl(value) || /^assets\/images\/[a-zA-Z0-9._-]+$/.test(value);
+    }
     function wait(milliseconds){ return new Promise(resolve => setTimeout(resolve, milliseconds)); }
     function scrollWriting(){
       const lineHeight = parseFloat(getComputedStyle(copy).lineHeight) || 38;
@@ -172,7 +229,7 @@
       listView.hidden = true;
       readerView.classList.add('is-open');
       controls.classList.add('is-open');
-      paper.style.backgroundImage = validUrl(writing.backgroundUrl) ? `url("${writing.backgroundUrl}")` : 'none';
+      paper.style.backgroundImage = validBackground(writing.backgroundUrl) ? `url("${writing.backgroundUrl}")` : 'none';
       if(validUrl(LOGO_URL)) logoElement.src = LOGO_URL;
       else logoElement.removeAttribute('src');
       playWriting();
