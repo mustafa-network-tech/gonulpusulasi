@@ -1,0 +1,25 @@
+{
+  "method": "Built-in image_gen",
+  "images": [
+    {
+      "name": "kh-12",
+      "prompt": "Use case: photorealistic-natural. Create one vertical 9:16 cinematic photographic background for an emotional Turkish poetry reader. A solitary empty wooden bench on the far lower right of a quiet Aegean seafront at blue hour, distant amber sunset, gentle waves, absence and longing. Natural photographic texture, realistic subtle film grain, understated warm gold and charcoal blue grading, no fantasy. Keep the middle 65 percent uncluttered with darker low-detail sea/sky for white text added by the website. Subjects small and secondary, evocative natural light, no text, letters, logo, watermark, border or collage. Save a separate image."
+    },
+    {
+      "name": "kh-13",
+      "prompt": "Use case: photorealistic-natural. Create one vertical 9:16 cinematic photographic background for an emotional Turkish poetry reader. A deserted wet coastal promenade after rain at twilight, one warm streetlamp on the far left, amber reflections on dark paving, distant calm sea, quiet release. Natural photographic texture, realistic subtle film grain, understated warm gold and charcoal blue grading, no fantasy. Keep the middle 65 percent uncluttered with darker low-detail sea/sky for white text added by the website. Subjects small and secondary, evocative natural light, no text, letters, logo, watermark, border or collage. Save a separate image."
+    },
+    {
+      "name": "kh-14",
+      "prompt": "Use case: photorealistic-natural. Create one vertical 9:16 cinematic photographic background for an emotional Turkish poetry reader. Small waves gently erasing a trail of footprints on an empty beach at sunset, footprints along lower right, dusky copper horizon and deep blue sea, tender nostalgia. Natural photographic texture, realistic subtle film grain, understated warm gold and charcoal blue grading, no fantasy. Keep the middle 65 percent uncluttered with darker low-detail sea/sky for white text added by the website. Subjects small and secondary, evocative natural light, no text, letters, logo, watermark, border or collage. Save a separate image."
+    },
+    {
+      "name": "kh-15",
+      "prompt": "Use case: photorealistic-natural. Create one vertical 9:16 cinematic photographic background for an emotional Turkish poetry reader. A slender coastal path through dark dune grasses leading toward a soft peach sunrise over the sea, grasses at edges, hopeful stillness after a difficult night. Natural photographic texture, realistic subtle film grain, understated warm gold and charcoal blue grading, no fantasy. Keep the middle 65 percent uncluttered with darker low-detail sea/sky for white text added by the website. Subjects small and secondary, evocative natural light, no text, letters, logo, watermark, border or collage. Save a separate image."
+    },
+    {
+      "name": "kh-16",
+      "prompt": "Use case: photorealistic-natural. Create one vertical 9:16 cinematic photographic background for an emotional Turkish poetry reader. A tiny distant pair of silhouettes sitting together on the far lower right end of a seaside pier at sunset, expansive still dark blue water and muted amber sky, quiet dependable love. Natural photographic texture, realistic subtle film grain, understated warm gold and charcoal blue grading, no fantasy. Keep the middle 65 percent uncluttered with darker low-detail sea/sky for white text added by the website. Subjects small and secondary, evocative natural light, no text, letters, logo, watermark, border or collage. Save a separate image."
+    }
+  ]
+}

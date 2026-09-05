@@ -16,7 +16,6 @@
     <section class="kh-reader-view" id="readerView" aria-live="polite">
       <article class="kh-paper" id="paper">
         <div class="kh-copy" id="copy">
-          <h2 class="kh-title" id="writingTitle"></h2>
           <div class="kh-message" id="writingText"></div>
         </div>
         <img class="kh-logo" id="paperLogo" alt="" aria-hidden="true">
@@ -33,130 +32,157 @@
   <script>
     const LOGO_URL = "https://mustafa-network-tech.github.io/photo-url/images/doga/logo-transparent-v2.png";
     const writings = [
-      {
-        title: "Kendi Yolunda Kal",
-        text: [
-          "Herkesin yürüdüğü yol sana doğru gelmek zorunda değil.",
-          "Bazen kalabalığın tersine yürümek, yanlış yerde olduğun anlamına gelmez. Belki de ilk kez kendi yönünü buluyorsundur.",
-          "İnsan zamanla şunu öğreniyor; başkalarının ne kadar ilerlediğine bakarak kendi yolunun değerini ölçemezsin. Herkesin yükü başka, zamanı başka, varacağı yer başka.",
-          "Yorulduğunda dinlen. Gerekirse biraz yavaşla. Ama sırf başkaları başka tarafa gidiyor diye kendi pusulandan vazgeçme.",
-          "Çünkü bazı yollar kalabalık olduğu için değil, sana ait olduğu için güzeldir."
-        ],
-        backgroundUrl: "https://mustafa-network-tech.github.io/photo-url/images/doga/IMG_3825.JPG"
-      },
-      {
-        title: "Sessizliğin de Bir Dili Var",
-        text: [
-          "İnsan her şeyi anlatmak zorunda değil.",
-          "Bazı kırgınlıkların cümlesi olmaz. Bazı vedaların açıklaması, bazı hayal kırıklıklarının hesabı kalmaz.",
-          "Bir zaman sonra insan kendini herkese anlatmaya çalışmaktan yoruluyor. Kimin ne anladığını değil, kendi içinde neyin doğru olduğunu önemsemeye başlıyor.",
-          "İşte o zaman sessizlik değişiyor.",
-          "Küslük olmaktan çıkıp huzura, kaçmak olmaktan çıkıp kendini korumaya dönüşüyor.",
-          "Bazen söylenmeyen şeyler eksik değildir.",
-          "Sadece anlayacak olana bırakılmıştır."
-        ],
-        backgroundUrl: "https://mustafa-network-tech.github.io/photo-url/images/doga/IMG_5392.JPG"
-      },
-      {
-        title: "Geç Kalmış Değilsin",
-        text: [
-          "Bazen hayatına bakıp “Keşke daha önce başlasaydım” dersin.",
-          "Keşke daha önce cesaret etseydim, daha önce vazgeçseydim, daha önce kendimi seçseydim…",
-          "Ama insan bazı şeyleri ancak yaşayarak anlayabiliyor.",
-          "Bugünkü aklını dün taşısaydın belki başka kararlar verirdin. Fakat o aklı sana kazandıran da zaten geçtiğin yollar oldu.",
-          "Bu yüzden geçmişe kızmak yerine ondan aldıklarını yanına koy.",
-          "Önünde hâlâ yol varsa, hâlâ bir şeyleri değiştirebiliyorsan geç kalmış değilsin.",
-          "Belki de tam zamanındasın."
-        ],
-        backgroundUrl: "https://mustafa-network-tech.github.io/photo-url/images/doga/IMG_5666.JPG"
-      },
-      {
-        title: "Biraz Kendine Dön",
-        text: [
-          "Herkes için yetişmeye çalışırken insan bazen kendisine geç kalıyor.",
-          "Kim üzülür, kim ne düşünür, kim yanlış anlar derken kendi içindeki sesi en sona bırakıyor.",
-          "Oysa senin de yorulduğun yerler var. Senin de anlatmadan taşıdığın şeyler, kimse bilmeden verdiğin mücadeleler var.",
-          "Biraz dur.",
-          "Her şeyi çözmek zorunda değilsin. Herkesi memnun etmek de senin görevin değil.",
-          "Arada bir dünyaya sırtını dönüp kendine bak.",
-          "Çünkü insanın en uzun yolculuğu bazen uzaklara değil, yeniden kendine doğru oluyor."
-        ],
-        backgroundUrl: "https://mustafa-network-tech.github.io/photo-url/images/doga/mart%C4%B1_g%C3%BCnbat%C4%B1m%C4%B1deniz.JPG"
-      },
-      {
-        title: "Bazı İnsanlar Uzakta Kalmalı",
-        text: [
-          "Her kaybettiğin insanı geri kazanmak zorunda değilsin.",
-          "Bazı insanlar hayatından çıktığında geriye boşluk değil, huzur kalır. Bunu anlamak bazen uzun zaman alır.",
-          "Sürekli açıklama yapmak zorunda kaldığın, yanında kendin gibi olamadığın, değerini ancak seni kaybettiğinde hatırlayan insanların ardından koşma.",
-          "Affetmek başka şeydir, aynı kapıyı yeniden açmak başka.",
-          "Kimseye öfke taşımadan da mesafe koyabilirsin.",
-          "Çünkü büyümek bazen insanları hayatına almak değil; kimlerin dışında kalması gerektiğini öğrenmektir."
-        ],
-        backgroundUrl: "https://mustafa-network-tech.github.io/photo-url/images/gonul-pusulasi/IMG_6411.JPG"
-      },
-      {
-        title: "Bazı İnsanlar Geç Kalır",
-        text: [
-          "Bazen bir insan tam kalbine göre gelir, ama hayatına yanlış zamanda dokunur.",
-          "Ne sevgide eksiklik vardır ne de hislerde. Sadece şartlar, yollar ve zaman aynı yerde buluşmaz.",
-          "Sonra hayat devam eder… Ama insan bazen kaybettiği kişiyi değil, onunla yaşayamadığı ihtimalleri özler."
-        ],
-        backgroundUrl: "assets/images/ask1.jpg"
-      },
-      {
-        title: "Sessizliğin de Bir Cevabı Var",
-        text: [
-          "İnsan her şeyi anlatmak zorunda değil. Bazen ne kadar konuşsan da seni anlamak istemeyene tek bir cümle bile yetmez.",
-          "Bir süre sonra kendini açıklamaktan, kırıldığın yerleri göstermekten yorulursun.",
-          "İşte o zaman susarsın. Çünkü bazı sessizlikler vazgeçmek değil, kendine verdiğin değerin başladığı yerdir."
-        ],
-        backgroundUrl: "assets/images/ask2.jpg"
-      },
-      {
-        title: "Kalmak da Sevmektir",
-        text: [
-          "Güzel günlerde yanında olmak kolaydır. İnsanların gerçek yeri, hayat biraz zorlaştığında belli olur.",
-          "Çünkü sevgi yalnızca güzel sözlerden, özlemekten ya da “yanındayım” demekten ibaret değildir.",
-          "Bazen hiçbir şey söylemeden kalmak ve herkes giderken bir insanın elini bırakmamak, söylenebilecek en güzel “seni seviyorum”dur."
-        ],
-        backgroundUrl: "assets/images/ask3.jpg"
-      },
-      {
-        title: "Herkes İz Bırakmaz",
-        text: [
-          "Hayatından birçok insan geçer. Bazıları bir süre yanında yürür, sonra sessizce kendi yoluna gider.",
-          "Zaman geçtikçe isimler unutulur, sesler silikleşir, hatıralar bile eski rengini kaybeder.",
-          "Ama bazı insanlar vardır; yıllar geçse de küçücük bir anıyla yeniden içine dokunur. Çünkü gönül herkesi değil, kendine dokunanı hatırlar."
-        ],
-        backgroundUrl: "assets/images/ask4.jpg"
-      },
-      {
-        title: "Bir Gün Anlarsın",
-        text: [
-          "Bugün kayıp sandığın bazı şeylerin neden hayatından çıktığını belki henüz anlayamıyorsun.",
-          "İnsan bazen biten bir hikâyenin ardından uzun süre aynı yerde bekliyor. Oysa hayat çoktan başka bir kapıyı aralamış oluyor.",
-          "Bir gün geriye baktığında anlayacaksın: Bazı vedalar seni eksiltmek için değil, yeniden kendine götürmek için yaşandı."
-        ],
-        backgroundUrl: "assets/images/ask5.jpg"
-      },
-      {
-        title: "Gönül Unutmuyor",
-        text: [
-          "Zaman geçiyor. İnsanlar değişiyor, yollar ayrılıyor ve bir zamanlar vazgeçilmez sandığımız şeyler yavaşça uzaklaşıyor.",
-          "Ama bazı anılar var ki üzerinden ne kadar zaman geçerse geçsin, küçücük bir şey onları yeniden hatırlatıyor.",
-          "Çünkü akıl unutmayı öğreniyor belki… Ama gönül, gerçekten kendisine dokunanı kolay kolay unutmuyor."
-        ],
-        backgroundUrl: "assets/images/ask6.jpg"
-      }
-    ];
+  {
+    "title": "— İNSAN SESSİZCE DEĞİŞİR",
+    "text": [
+      "Bazı insanlar sessizce değişir…\nKimse fark etmez içinde kopanları.\nAynı yüzle devam eder hayata,\nsadece eskisi kadar kimseye inanmaz.",
+      "Sonra bir gün anlarsın;\nmesele yalnız kalmak değilmiş.\nİnsan en çok, yanlış insanların yanında\nkendinden uzak kalınca yoruluyormuş. 🕊️"
+    ],
+    "backgroundUrl": "https://mustafa-network-tech.github.io/photo-url/images/doga/IMG_3825.JPG"
+  },
+  {
+    "title": "— HER GİDEN EKSİLTMEZ",
+    "text": [
+      "Her giden bir şey eksiltmez insandan…\nBazıları giderken yükünü de götürür.\nSen bunu önce yalnızlık sanırsın,\nzaman geçince adına huzur dersin.",
+      "Çünkü hayat herkesi yanında tutmak değil;\nkimin yanında kendin kalabildiğini bilmektir.\nBazen en güzel başlangıç,\narkandan kapanan bir kapıyla gelir. 🕊️"
+    ],
+    "backgroundUrl": "https://mustafa-network-tech.github.io/photo-url/images/doga/IMG_5392.JPG"
+  },
+  {
+    "title": "— BAZI ŞEYLER SESSİZ BİTER",
+    "text": [
+      "Bazı şeyler kavga ederek bitmez…\nNe ağır sözler söylenir,\nne de büyük vedalar edilir.\nİnsan sadece içinden vazgeçer.",
+      "Bir sabah aynı yere bakarsın,\nama artık aynı şeyi hissetmezsin.\nÇünkü bazı vedalar kapıda değil,\ninsanın kalbinde çoktan yaşanmıştır. 🕊️"
+    ],
+    "backgroundUrl": "https://mustafa-network-tech.github.io/photo-url/images/doga/IMG_5666.JPG"
+  },
+  {
+    "title": "— HERKES AYNI YERDEN BAKMAZ",
+    "text": [
+      "Güneş herkese doğar…\nAma herkes aynı yerden bakmaz.\nKimi yalnızca yeni bir günü görür,\nkimi karanlıktan nasıl çıktığını hatırlar.",
+      "Bu yüzden kimsenin sessizliğini küçümseme.\nBelki sen onun bugününü görüyorsun,\nama o yeniden ayağa kalkabilmek için\nkaç geceyle savaştığını biliyor. 🕊️"
+    ],
+    "backgroundUrl": "https://mustafa-network-tech.github.io/photo-url/images/doga/mart%C4%B1_g%C3%BCnbat%C4%B1m%C4%B1deniz.JPG"
+  },
+  {
+    "title": "— GEÇ KALMIŞ DEĞİLSİN",
+    "text": [
+      "Bazen hayat durmuş gibi gelir…\nHerkes bir yerlere yetişirken\nsen aynı yerde kalmışsın sanırsın.\nOysa her insanın zamanı başka akar.",
+      "Belki yolun biraz uzun sürecek,\nbelki bazı şeyler seni geç bulacak.\nAma doğru zamanda gelen bir güzellik,\ngeç kalmış sayılmaz. 🕊️"
+    ],
+    "backgroundUrl": "https://mustafa-network-tech.github.io/photo-url/images/gonul-pusulasi/IMG_6411.JPG"
+  },
+  {
+    "title": "— KALBİNİ HERKESE AÇMA",
+    "text": [
+      "İyi olmak herkese inanmak değildir…\nKalbin temiz olabilir,\nama karşına çıkan herkes\naynı temiz niyetle gelmez.",
+      "Bu yüzden sevginden vazgeçme,\nsadece onu kime verdiğini iyi bil.\nÇünkü güzel bir kalbin en büyük hatası,\nherkesi kendisi gibi sanmaktır. 🕊️"
+    ],
+    "backgroundUrl": "assets/images/ask1.jpg"
+  },
+  {
+    "title": "— BAZEN UZAKLAŞMAK GEREKİR",
+    "text": [
+      "Bazı insanlardan nefret ederek değil,\nkendini korumak için uzaklaşırsın.\nÇünkü her mücadele kazanılmak için değil,\nbazıları bitirilmek için vardır.",
+      "Bir süre sonra fark edersin;\ngitmek her zaman vazgeçmek değildir.\nBazen insan kendine dönebilmek için\nbaşkasından uzaklaşmak zorundadır. 🕊️"
+    ],
+    "backgroundUrl": "assets/images/ask2.jpg"
+  },
+  {
+    "title": "— İNSAN EN ÇOK GÜVENDİĞİ YERDE KIRILIR",
+    "text": [
+      "Yabancıların sözü kolay unutulur…\nİnsanı asıl susturan,\n“o yapmaz” dediği birinin\nhiç beklemediği anda değişmesidir.",
+      "Sonra eskisi gibi kızamazsın bile.\nSadece içinde bir kapı sessizce kapanır.\nÇünkü bazı kırgınlıkların ardından\nözür gelir ama eski güven gelmez. 🕊️"
+    ],
+    "backgroundUrl": "assets/images/ask3.jpg"
+  },
+  {
+    "title": "— HUZURUN KIYMETİNİ BİL",
+    "text": [
+      "Bir zamanlar peşinden koştuğun şeylerin\nbugün seni hiç ilgilendirmediğini görürsün.\nİnsan büyüdükçe istekleri değil,\nöncelikleri değişir.",
+      "Sonunda çok şey istemezsin hayattan;\nsamimi birkaç insan, sakin bir gönül…\nÇünkü insan belli bir yaştan sonra\nheyecandan çok huzuru arıyor. 🕊️"
+    ],
+    "backgroundUrl": "assets/images/ask4.jpg"
+  },
+  {
+    "title": "— BİR GÜN HER ŞEY YERİNE OTURUR",
+    "text": [
+      "Bugün anlam veremediğin şeyler olabilir…\nNeden gittiğini, neden olmadığını,\nneden bu kadar beklediğini\nkendine defalarca sorabilirsin.",
+      "Ama hayat bazen cevabı hemen vermez.\nZaman geçer, parçalar yerine oturur.\nSonra dönüp baktığında dersin ki:\niyi ki bazı dualarım olmamış. 🕊️"
+    ],
+    "backgroundUrl": "assets/images/ask5.jpg"
+  },
+  {
+    "title": "— YİNE DE GÜZEL ŞEYLER OLACAK",
+    "text": [
+      "İnsan bazen çok yorulur…\nNe yeni bir başlangıca gücü vardır,\nne de geçmişe dönecek isteği.\nSadece biraz sessizlik ister.",
+      "Ama hiçbir gece sonsuza kadar sürmez.\nBir gün hiç beklemediğin bir anda\nhayat sana yeniden gülümser.\nYeter ki kalbinin ışığını tamamen söndürme. 🕊️"
+    ],
+    "backgroundUrl": "assets/images/ask6.jpg"
+  },
+{
+  "title": "— EN ÇOK SANA ANLATMAK İSTEDİM",
+  "text": [
+    "Bugün güzel bir şey oldu…\nElim yine telefona gitti.\nİnsan bazen birinin yokluğunu,\nsevincini paylaşamayınca anlıyor.",
+    "Sonra sustum, denize baktım.\nDalgalar kıyıya bir şeyler anlattı.\nBen seni en çok, içimde kalan\nküçücük bir “duysaydın” kadar özledim. 🕊️"
+  ],
+  "backgroundUrl": "assets/images/kh-12.png"
+},
+{
+  "title": "— BU KEZ KENDİMİ BEKLETMEYECEĞİM",
+  "text": [
+    "Bir mesaj gelir diye kaç akşam\nışığını açık bıraktım içimin.\nSenin yolun bana düşmedi,\nben kendime dönmeyi erteledim.",
+    "Bu gece telefonu sessize aldım.\nÇayı henüz sıcakken içtim.\nBirinden haber beklemeden de\nhayat devam ediyormuş, öğrendim. 🕊️"
+  ],
+  "backgroundUrl": "assets/images/kh-13.png"
+},
+{
+  "title": "— UNUTMADIM, ARTIK ACIMIYOR",
+  "text": [
+    "Adını duyunca hâlâ hatırlıyorum.\nO sokağı, o akşamı, son bakışını…\nAma artık bir şarkı çaldığında\ngünüm yarıda kalmıyor.",
+    "Dün yine aynı kıyıdan geçtim.\nBu kez denizin rengini fark ettim.\nMeğer iyileşmek biraz da\nsenden başka şeyler görebilmekmiş. 🕊️"
+  ],
+  "backgroundUrl": "assets/images/kh-14.png"
+},
+{
+  "title": "— KİMSE BİLMEDİ AMA SEN BAŞARDIN",
+  "text": [
+    "Sabah kalkıp perdeyi açtın.\nOysa gece ne çok yorulmuştun.\nKimse bunu bir zafer saymadı,\nsen o sabaha zor kavuşmuştun.",
+    "Bugün her şeye yetişmen gerekmiyor.\nBiraz hava al, kendine zaman ver.\nBazen yeniden başlamak,\nyüzünü güneşe dönmekle olur. 🕊️"
+  ],
+  "backgroundUrl": "assets/images/kh-15.png"
+},
+{
+  "title": "— YANINDA SUSABİLDİĞİM BİRİ",
+  "text": [
+    "Artık büyük sözler beklemiyorum.\nYorgunken sesimi tanıyan,\n“Anlatmak ister misin?” deyip\ncevabımı bekleyen biri olsun.",
+    "Bir akşam denize karşı oturalım.\nSessizliği doldurmaya çalışmadan.\nBen başımı omzuna koyayım,\ndünya biraz kendi kendine dönsün. 🕊️"
+  ],
+  "backgroundUrl": "assets/images/kh-16.png"
+},
+{
+  "title": "— BİR SARILMAYA SIĞAN DÜNYA",
+  "text": [
+    "Sana anlatacak çok şeyim vardı.\nBütün gün cümleler biriktirdim.\nSonra kapıyı açıp sarıldın,\nben neden yorulduğumu unuttum.",
+    "O akşam hiçbir şeyi çözmedik.\nÇay soğudu, hava karardı.\nAma uzun zamandır ilk defa\nbir yere yetişmem gerekmiyordu. 🕊️"
+  ],
+  "backgroundUrl": "assets/images/ask3.jpg"
+},
+{
+  "title": "— ELİMİ TUT, GERİSİ BEKLESİN",
+  "text": [
+    "Yarın ne olur, bilmiyorum.\nBelki yine zor bir gün geçer.\nAma sen elimi böyle tutunca\niçimdeki telaş biraz diner.",
+    "Bana hiç üzülmeyeceğiz deme.\nYeter ki zor günlerde de konuşalım.\nYol bazen ikimizi de yorarsa,\nbir taşın üstünde birlikte soluklanalım. 🕊️"
+  ],
+  "backgroundUrl": "assets/images/ask5.jpg"
+}
+];
 
     const listView = document.getElementById('listView');
     const writingList = document.getElementById('writingList');
     const readerView = document.getElementById('readerView');
     const paper = document.getElementById('paper');
     const copy = document.getElementById('copy');
-    const titleElement = document.getElementById('writingTitle');
     const textElement = document.getElementById('writingText');
     const logoElement = document.getElementById('paperLogo');
     const finalSignature = document.getElementById('finalSignature');
@@ -203,24 +229,31 @@
       const currentRun = ++runId;
       copy.classList.remove('is-fading');
       finalSignature.classList.remove('is-visible');
-      titleElement.textContent = writing.title;
       textElement.innerHTML = '';
+      const paragraphs = writing.text.map(value => {
+        const paragraph = document.createElement('p');
+        paragraph.textContent = value;
+        paragraph.style.visibility = 'hidden';
+        textElement.appendChild(paragraph);
+        return paragraph;
+      });
       copy.scrollTop = 0;
 
       await wait(reducedMotion ? 0 : 650);
-      for(const paragraphText of writing.text){
+      for(const [index, paragraphText] of writing.text.entries()){
         if(currentRun !== runId) return;
-        const paragraph = document.createElement('p');
-        textElement.appendChild(paragraph);
-        await typeText(paragraph, paragraphText, 38, currentRun);
-        await wait(reducedMotion ? 0 : 520);
+        const paragraph = paragraphs[index];
+        paragraph.style.minHeight = `${paragraph.offsetHeight}px`;
+        paragraph.textContent = '';
+        paragraph.style.visibility = 'visible';
+        await typeText(paragraph, paragraphText, 48, currentRun);
+        if(index < writing.text.length - 1) await wait(reducedMotion ? 0 : 520);
       }
       if(currentRun !== runId) return;
-      await wait(reducedMotion ? 0 : 4000);
+      await wait(2000);
       if(currentRun !== runId) return;
       copy.classList.add('is-fading');
-      await wait(reducedMotion ? 0 : 1850);
-      if(currentRun === runId) finalSignature.classList.add('is-visible');
+      finalSignature.classList.add('is-visible');
     }
 
     function openWriting(index){
@@ -243,7 +276,6 @@
       listView.hidden = false;
       copy.classList.remove('is-fading');
       finalSignature.classList.remove('is-visible');
-      titleElement.textContent = '';
       textElement.innerHTML = '';
     }
 
