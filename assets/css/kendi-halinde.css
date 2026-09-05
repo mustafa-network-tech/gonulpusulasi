@@ -136,7 +136,7 @@ button{ font:inherit; }
 .kh-control:focus-visible{ outline:2px solid #fffaf2; outline-offset:3px; }
 @media(max-width:600px){
   .kh-paper{ padding-left:10px; padding-right:10px; }
-  .kh-copy{ font-size:clamp(1.3rem,5.6vw,1.85rem); }
+  .kh-copy{ font-size:clamp(1.45rem,6.2vw,2rem); }
 }
 @media(max-height:700px) and (max-width:520px){
   .kh-copy{ line-height:1.4; }
