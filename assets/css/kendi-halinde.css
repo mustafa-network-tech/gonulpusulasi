@@ -134,8 +134,12 @@ button{ font:inherit; }
 }
 .kh-control:hover{ color:#fff; }
 .kh-control:focus-visible{ outline:2px solid #fffaf2; outline-offset:3px; }
+@media(max-width:600px){
+  .kh-paper{ padding-left:10px; padding-right:10px; }
+  .kh-copy{ font-size:clamp(1.3rem,5.6vw,1.85rem); }
+}
 @media(max-height:700px) and (max-width:520px){
-  .kh-copy{ font-size:clamp(1.05rem,4.5vw,1.3rem); line-height:1.4; }
+  .kh-copy{ line-height:1.4; }
   .kh-message p + p{ margin-top:22px; }
   .kh-paper{ padding-top:24px; padding-bottom:64px; }
 }
