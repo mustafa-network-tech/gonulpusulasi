@@ -31,6 +31,9 @@ button{ font:inherit; }
   text-shadow:0 4px 20px rgba(0,0,0,.45);
 }
 .kh-writing-list{ margin:0; padding:0; list-style:none; border-top:1px solid rgba(212,188,141,.16); }
+.kh-video-link{ align-self:center; margin:-18px 0 30px; padding:12px; color:#9bd6ff; font-size:1.4rem; text-align:center; text-decoration:none; }
+.kh-video-link:hover{ color:#d7f0ff; }
+.kh-video-link:focus-visible{ outline:2px solid #9bd6ff; outline-offset:4px; }
 .kh-writing-button{
   width:100%;
   padding:19px 12px;
